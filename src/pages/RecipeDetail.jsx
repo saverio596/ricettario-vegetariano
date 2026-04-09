@@ -9,7 +9,7 @@ import clockIcon from '../assets/clock.png';
 
 function RecipeDetail() {
   
-  /*const { id } = useParams();  
+  const { id } = useParams();  
   const [ricetta, setRicetta] = useState(null);
   const [caricamento, setCaricamento] = useState(true);  
 
@@ -34,9 +34,9 @@ useEffect(() => {
         <Link to="/" className="text-green-600 underline">Torna alla Home</Link>
       </div>
     );
-  }*/
+  }
 
-    const ricetta = ricettaEsempio;
+    //const ricetta = ricettaEsempio;
 
   return (
     <>

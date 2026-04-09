@@ -9,16 +9,16 @@ function Home() {
   const [ricette, setRicette] = useState([]); // Qui salveremo l'elenco delle ricette
   const [caricamento, setCaricamento] = useState(false);
 
-  /*const gestisciRicerca = async () => {
+  const gestisciRicerca = async () => {
     if (!testoCercato.trim()) return;
 
     setCaricamento(true);
     const dati = await cercaRicetteVeg(testoCercato);
     setRicette(dati); // Salviamo le ricette trovate!
     setCaricamento(false);
-  };*/
+  };
 
-const gestisciRicerca = async () => {
+/*const gestisciRicerca = async () => {
   if (!testoCercato.trim()) return;
 
   setCaricamento(true);
@@ -36,7 +36,7 @@ const gestisciRicerca = async () => {
     setCaricamento(false);
   }, 500); // Mezzo secondo di attesa finta
 
-};
+};*/
 
   return (
     <>
