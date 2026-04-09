@@ -62,7 +62,7 @@ function Home() {
         {/* Input */}
         <input 
           type="text" 
-          placeholder="Cosa vorresti cucinare oggi?" 
+          placeholder="Cosa cucini oggi?" 
           className="flex-grow bg-transparent text-gray-700 placeholder:text-gray-400 text-sm py-3 outline-none"
           value={testoCercato}
           onChange={(e) => setTestoCercato(e.target.value)}
