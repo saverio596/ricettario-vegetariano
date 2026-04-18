@@ -18,26 +18,6 @@ function Home() {
     setCaricamento(false);
   };
 
-/*const gestisciRicerca = async () => {
-  if (!testoCercato.trim()) return;
-
-  setCaricamento(true);
-
-  // --- LOGICA MOCK (Attiva questa per oggi) ---
-  // Simuliamo un piccolo ritardo per vedere l'effetto di caricamento
-  setTimeout(() => {
-    // Spoonacular restituisce un array, quindi mettiamo la nostra ricetta in [ ]
-    // Possiamo anche duplicarla per vedere come sta il layout con più card
-    //const datiFinti = [ricettaEsempio, ricettaEsempio, ricettaEsempio]; 
-    
-    const ricetta = [ricettaEsempio];
-
-    setRicette(ricetta); 
-    setCaricamento(false);
-  }, 500); // Mezzo secondo di attesa finta
-
-};*/
-
   return (
     <>
     <div className="header-section">

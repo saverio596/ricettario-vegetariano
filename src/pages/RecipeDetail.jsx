@@ -36,8 +36,6 @@ useEffect(() => {
     );
   }
 
-    //const ricetta = ricettaEsempio;
-
   return (
     <>
     <div className="detail-recipe">
