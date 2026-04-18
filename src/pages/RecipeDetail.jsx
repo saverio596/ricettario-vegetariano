@@ -11,8 +11,8 @@ function RecipeDetail() {
   
   const { id } = useParams();  
   const [ricetta, setRicetta] = useState(null);
-  const [caricamento, setCaricamento] = useState(true);  
-  const cleanInstructions = DOMPurify.sanitize(ricetta.instructions);
+  const [caricamento, setCaricamento] = useState(true);
+  const [errore, setErrore] = useState(null);
 
 useEffect(() => {
   const caricaDettagli = async () => {
@@ -37,6 +37,15 @@ useEffect(() => {
 
   if (caricamento) {
     return <div className="text-center p-20 text-xl font-semibold">Caricamento ricetta... 🍳</div>;
+  }
+
+  if (errore) {
+    return (
+      <div className="text-center p-20">
+        <p className="text-red-500 mb-4">{errore}</p>
+        <Link to="/" className="text-green-600 underline">Torna alla Home</Link>
+      </div>
+    );
   }
 
   if (!ricetta) {
