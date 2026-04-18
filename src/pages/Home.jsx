@@ -65,7 +65,7 @@ function Home() {
               key={ricetta.id} 
               className="group"
             >
-          <div key={ricetta.id} className="bg-white rounded-xl shadow-md overflow-hidden p-4 border border-gray-200">
+          <div className="bg-white rounded-xl shadow-md overflow-hidden p-4 border border-gray-200">
             <img 
               src={ricetta.image} 
               alt={ricetta.title} 
