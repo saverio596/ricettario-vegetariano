@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { cercaRicetteVeg } from '../services/api'; // Importiamo la funzione
 import { Link } from 'react-router-dom';
 import './Home.css';
-import {ricettaEsempio} from '../mockData';
 
 function Home() {
   const [testoCercato, setTestoCercato] = useState("");

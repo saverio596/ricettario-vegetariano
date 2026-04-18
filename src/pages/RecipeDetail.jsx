@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { ottieniDettagliRicetta } from '../services/api'; // Importiamo la funzione
 import './RecipeDetail.css';
 
-import {ricettaEsempio} from '../mockData';
 import userIcon from '../assets/user.png';
 import clockIcon from '../assets/clock.png';
 
