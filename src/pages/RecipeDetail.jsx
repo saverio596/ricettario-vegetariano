@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ottieniDettagliRicetta } from '../services/api'; // Importiamo la funzione
+import DOMPurify from 'dompurify';
 import './RecipeDetail.css';
 
 import userIcon from '../assets/user.png';
@@ -11,6 +12,7 @@ function RecipeDetail() {
   const { id } = useParams();  
   const [ricetta, setRicetta] = useState(null);
   const [caricamento, setCaricamento] = useState(true);  
+  const cleanInstructions = DOMPurify.sanitize(ricetta.instructions);
 
 useEffect(() => {
     const caricaDati = async () => {
@@ -83,14 +85,16 @@ useEffect(() => {
         </div>
       </div>
       <div className="md:col-span-8 p-4">
-        <div className="box-procedimento">
+      <div className="box-procedimento">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-left">Procedimento</h2>
-            <div 
-            className="prose max-w-none text-gray-700 text-left"
-            dangerouslySetInnerHTML={{ __html: ricetta.instructions || "Nessuna istruzione disponibile per questa ricetta." }} 
-            />
-        </div>
+        <div 
+          className="prose max-w-none text-gray-700 text-left"
+          dangerouslySetInnerHTML={{ 
+            __html: DOMPurify.sanitize(ricetta.instructions || "Nessuna istruzione disponibile per questa ricetta.") 
+          }} 
+        />
       </div>
+    </div>
     </div>
     </div>
     </>
