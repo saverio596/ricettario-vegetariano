@@ -15,14 +15,25 @@ function RecipeDetail() {
   const cleanInstructions = DOMPurify.sanitize(ricetta.instructions);
 
 useEffect(() => {
-    const caricaDati = async () => {
+  const caricaDettagli = async () => {
+    try {
       setCaricamento(true);
       const dati = await ottieniDettagliRicetta(id);
       setRicetta(dati);
+    } catch (err) {
+      // Qui puoi distinguere i casi!
+      if (err.response?.status === 404) {
+        setErrore("Questa ricetta non esiste.");
+      } else {
+        setErrore("Errore nel caricamento della ricetta. Riprova più tardi.");
+      }
+    } finally {
       setCaricamento(false);
-    };
-    caricaDati();
-  }, [id]);
+    }
+  };
+
+  caricaDettagli();
+}, [id]);
 
   if (caricamento) {
     return <div className="text-center p-20 text-xl font-semibold">Caricamento ricetta... 🍳</div>;

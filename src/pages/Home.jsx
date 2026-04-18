@@ -7,15 +7,25 @@ function Home() {
   const [testoCercato, setTestoCercato] = useState("");
   const [ricette, setRicette] = useState([]); // Qui salveremo l'elenco delle ricette
   const [caricamento, setCaricamento] = useState(false);
+  const [errore, setErrore] = useState(null);
 
   const gestisciRicerca = async () => {
-    if (!testoCercato.trim()) return;
+  if (!testoCercato.trim()) return;
 
-    setCaricamento(true);
+  setCaricamento(true);
+  setErrore(null); // Resettiamo l'errore prima di ogni nuova ricerca
+
+  try {
     const dati = await cercaRicetteVeg(testoCercato);
-    setRicette(dati); // Salviamo le ricette trovate!
+    setRicette(dati);
+  } catch (err) {
+    console.error("Errore catturato nel componente:", err);
+    setErrore("Ops! Non riesco a collegarmi al server. Riprova più tardi.");
+    setRicette([]);
+  } finally {
     setCaricamento(false);
-  };
+  }
+};
 
   return (
     <>
